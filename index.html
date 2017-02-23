@@ -137,7 +137,7 @@
             var geoJSON = Sheetsee.createGeoJSON(gData, optionsJSON)
 
             // create map, tilelayer (map background), markers and popups
-            var map = Sheetsee.loadMap("map")
+            var map = Sheetsee.loadMap("map");
             Sheetsee.addTileLayer(map,'http://api.tiles.mapbox.com/v4/satellite.json?access_token=pk.eyJ1Ijoic2hlbGQwNjExIiwiYSI6ImNpbjdvempkMDBmNTV0bWtzOHNpbmQ1bGsifQ.KK-SYSyL8hthLtb3SVLv4g');
             var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, "<h2>{{ name }}</h2>", true)
 
