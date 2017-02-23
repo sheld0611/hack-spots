@@ -114,7 +114,7 @@ L.tileLayer(
         zoomOffset: -1,
         attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
-            var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, "<h2>{{ name }}</h2>", true)
+            var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, "<h2>{{ Type }}</h2>", true)
 
             // find the latest spot with the most important
             // info filled in (to prevent map breaking if
