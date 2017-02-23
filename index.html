@@ -138,8 +138,12 @@
             var geoJSON = Sheetsee.createGeoJSON(gData, optionsJSON)
 
             // create map, tilelayer (map background), markers and popups
-            var map = Sheetsee.loadMap("map");
-            Sheetsee.addTileLayer(map,'http://api.tiles.mapbox.com/v3.0.1/mapbox.satellite.json?access_token=pk.eyJ1Ijoic2hlbGQwNjExIiwiYSI6ImNpbjdvempkMDBmNTV0bWtzOHNpbmQ1bGsifQ.KK-SYSyL8hthLtb3SVLv4g');
+           L.mapbox.accessToken = 'pk.eyJ1Ijoic2hlbGQwNjExIiwiYSI6ImNpbjdvempkMDBmNTV0bWtzOHNpbmQ1bGsifQ.KK-SYSyL8hthLtb3SVLv4g';
+           var map = L.mapbox.map('map');
+
+            var stamenLayer = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
+                    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.'
+}).addTo(map);
             var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, "<h2>{{ name }}</h2>", true)
 
             // find the latest spot with the most important
