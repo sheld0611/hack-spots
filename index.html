@@ -138,8 +138,7 @@
 
             // create map, tilelayer (map background), markers and popups
             var map = Sheetsee.loadMap("map")
-            Sheetsee.addTileLayer(map, 'http://api.tiles.mapbox.com/v4/cizi3y3gw000c2snviyq5cpuc.json?access_token=pk.eyJ1Ijoic2hlbGQwNjExIiwiYSI6ImNpbjdvempkMDBmNTV0bWtzOHNpbmQ1bGsifQ.KK-SYSyL8hthLtb3SVLv4g
-')
+            Sheetsee.addTileLayer(map, 'http://api.tiles.mapbox.com/v4/cizi3y3gw000c2snviyq5cpuc.json?access_token=pk.eyJ1Ijoic2hlbGQwNjExIiwiYSI6ImNpbjdvempkMDBmNTV0bWtzOHNpbmQ1bGsifQ.KK-SYSyL8hthLtb3SVLv4g')
             var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, "<h2>{{ name }}</h2>", true)
 
             // find the latest spot with the most important
