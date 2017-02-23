@@ -120,12 +120,7 @@ L.tileLayer(
         zoomOffset: -1,
         attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
-	    var osmb = new OSMBuildings(map).setData(geoJSON);
-		osmb.setStyle({ 
-     wallColor:'rgba(100, 100, 250, 0.701961)', 
-     roofColor:'rgb(220, 220, 50)', 
-     shadows:true 
-});
+	  
             var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, "<h2>{{name}}</h2>", true)
 
             // find the latest spot with the most important
