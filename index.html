@@ -24,7 +24,7 @@
 <div id="map"></div>
 <script id="hackSpotsTable" type="text/html">		
         <table>		
-        <tr><th class="tHeader">name</th><th class="tHeader">Address</th><th class="tHeader">City</th><th class="tHeader">State</th><th class="tHeader">Country</th><th class="">Elsewhere</th></tr>		
+        <tr><th class="tHeader">Name</th><th class="tHeader">Address</th><th class="tHeader">City</th><th class="tHeader">State</th><th class="tHeader">Country</th><th class="">Elsewhere</th></tr>		
         {{#rows}}		
         <tr id="{{rowNumber}}" class="spotRow"><td>{{name}}</td><td>{{address}}</td><td>{{city}}</td><td>{{state}}</td><td>{{country}}</td><td><a class="button" href="https://maps.google.com/maps?q={{address}},{{city}},{{state}}" target="_blank">G Map</a> <a class="button" href="http://www.yelp.com/search?find_desc={{Type}}&find_loc={{city}},{{state}}" target="_blank">Yelp</a></td></tr>		
             {{/rows}}		
@@ -114,7 +114,7 @@ L.tileLayer(
         zoomOffset: -1,
         attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
-            var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, "<h2>{{name}}</h2>", true)
+            var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, "<h2>{{type}}</h2>", true)
 
             // find the latest spot with the most important
             // info filled in (to prevent map breaking if
