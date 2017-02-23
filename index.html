@@ -118,7 +118,7 @@ var map = L.map('map').setView([41.251799, -95.958462], 5);
 L.tileLayer(
     'https://api.mapbox.com/styles/v1/sheld0611/ciyimt6dm00382smyek3ub7yl/tiles/256/{z}/{x}/{y}?access_token=' + L.mapbox.accessToken, {
         tileSize: 512,
-        zoomOffset: -1,
+        zoomOffset: 10,
         attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
             var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, "<h2>{{name}}</h2>", true)
