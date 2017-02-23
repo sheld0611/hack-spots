@@ -110,17 +110,39 @@
             var geoJSON = Sheetsee.createGeoJSON(gData, optionsJSON)
 
             // create map, tilelayer (map background), markers and popups
-         L.mapbox.accessToken = 'pk.eyJ1Ijoic2hlbGQwNjExIiwiYSI6ImNpbjdvempkMDBmNTV0bWtzOHNpbmQ1bGsifQ.KK-SYSyL8hthLtb3SVLv4g';
-var map = L.map('map').setView([41.251799, -95.958462], 5);
-
+         mapboxgl.accessToken='pk.eyJ1Ijoic2hlbGQwNjExIiwiYSI6ImNpbjdvempkMDBmNTV0bWtzOHNpbmQ1bGsifQ.KK-SYSyL8hthLtb3SVLv4g';
+var map = new mapboxgl.Map({
+	style: 'mapbox://styles/sheld0611/ciyimt6dm00382smyek3ub7yl',
+	center: [-74.0066, 40.7135],
+    	zoom: 15,
+    	pitch: 45,
+    	bearing: -17.6,
+    	container: 'map'
+})
 // Add tiles from Mapbox Style API (https://www.mapbox.com/developers/api/styles/)
 // Tiles are 512x512 pixels and are offset by 1 zoom level
-L.tileLayer(
-    'https://api.mapbox.com/styles/v1/sheld0611/ciyimt6dm00382smyek3ub7yl/tiles/256/{z}/{x}/{y}?access_token=' + L.mapbox.accessToken, {
-        tileSize: 512,
-        zoomOffset: -1,
-        attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
+map.on('load', function() {
+    map.addLayer({
+        'id': '3d-buildings',
+        'source': 'composite',
+        'source-layer': 'building',
+        'filter': ['==', 'extrude', 'true'],
+        'type': 'fill-extrusion',
+        'minzoom': 15,
+        'paint': {
+            'fill-extrusion-color': '#aaa',
+            'fill-extrusion-height': {
+                'type': 'identity',
+                'property': 'height'
+            },
+            'fill-extrusion-base': {
+                'type': 'identity',
+                'property': 'min_height'
+            },
+            'fill-extrusion-opacity': .6
+        }
+    });
+});
             var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, "<h2>{{name}}</h2>", true)
 
             // find the latest spot with the most important
