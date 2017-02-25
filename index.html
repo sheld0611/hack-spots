@@ -123,7 +123,7 @@ L.tileLayer(
         attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 	  
-            var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, "<img src="name" height="200" width="auto" /><br><br>", true)
+            var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, "<iframe>{{name}}</iframe>", true)
 	    
 	    var osmb = new OSMBuildings(map);
 
