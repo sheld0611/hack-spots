@@ -116,6 +116,33 @@ L.tileLayer(
 	  
             var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, "<iframe>{{name}}</iframe>", true)
 	    
+	       var osmb = new OSMBuildings(map);
+var geoJsonBlock;
+function getCenter(geoJson) {
+  var geometry, len = 0, lat = 0, lon = 0;
+  for (var i = 0, il = geoJson.features.length; i < il; i++) {
+    geometry = geoJson.features[i].geometry.coordinates[0];
+    if (geometry[0][0][0]) {
+      geometry = geometry[0];
+    }
+    len += geometry.length-1;
+    for (var j = 0, jl = geometry.length-1; j < jl; j++) {
+      lat += geometry[j][1];
+      lon += geometry[j][0];
+    }
+  }
+  return { lat:lat/len, lon:lon/len };
+}
+function setGeoJSON() {
+  try {
+    var geoJson = JSON.parse(geoJsonBlock.value);
+  } catch(e) {}
+  osmb.set(geoJson);
+  var center = getCenter(geoJson);
+  map.setView([center.lat, center.lon], 17)
+}
+geoJsonBlock = document.querySelector('textarea');
+setGeoJSON();
 	   
             // find the latest spot with the most important
             // info filled in (to prevent map breaking if
