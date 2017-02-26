@@ -93,16 +93,7 @@
                 Tabletop.init({ key: URL, callback: showInfo, simpleSheet: true })
         })
 
-        // so long, so messy
-        function showInfo(gData) {
-            tableOptions = {
-                "data": gData,
-                "tableDiv": "#hackSpotsTable",
-                "filterDiv": "#tableFilter"
-            }
-            // make the table, and the search bar
-            Sheetsee.makeTable(tableOptions)
-            Sheetsee.initiateTableFilter(tableOptions)
+
 
             // create geoJSON with coordinates and other
             // useful bits from the original data
